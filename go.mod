@@ -3,7 +3,7 @@ module github.com/digitalocean/sample-gin
 go 1.24.1
 
 require (
-	github.com/gin-gonic/gin v1.10.0
+	github.com/gin-gonic/gin v1.10.1
 	github.com/gofrs/uuid v4.4.0+incompatible
 	github.com/stretchr/testify v1.9.0
 )
