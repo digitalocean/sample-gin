@@ -111,6 +111,19 @@ func setupRouter() *gin.Engine {
 		c.String(http.StatusOK, requestID.String())
 	})
 
+	r.GET("/ping", func(c *gin.Context) {
+		logRequest(c)
+		codeParams, ok := c.Request.URL.Query()["code"]
+		if ok && len(codeParams) > 0 {
+			statusCode, _ := strconv.Atoi(codeParams[0])
+			if statusCode >= 200 && statusCode < 600 {
+				c.Status(statusCode)
+			}
+		}
+		requestID := uuid.New()
+		c.String(http.StatusOK, requestID.String())
+	})
+
 	return r
 }
 
