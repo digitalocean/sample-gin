@@ -111,6 +111,11 @@ func setupRouter() *gin.Engine {
 		c.String(http.StatusOK, requestID.String())
 	})
 
+	r.GET("/hello", func(c *gin.Context) {
+		logRequest(c)
+		c.String(http.StatusOK, "world")
+	})
+
 	return r
 }
 
